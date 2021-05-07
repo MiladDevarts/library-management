@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبد خرید | لیست کتابها</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style> 
+
+    @import url('https://v1.fontapi.ir/css/Vazir'); 
+
+    body {
+
+        font-family: 'Vazir', sans-serif;
+
+    }
+
+
+        td {
+
+        margin-top: 5px;
+
+        }
+            
+    </style>
+
+
+</head>
+<body>
+    
+    <div class="jumbotron mb-5">
+
+      <div class="row d-flex justify-content-center">
+
+        <h4>
+
+            فروشگاه / سبد خرید
+
+        </h4>
+
+
+      </div>
+
+      <div class="row d-flex justify-content-center">
+
+         
+        <h2>
+
+        لیست کتابهای شما
+
+        </h2>
+
+
+      </div>
+
+     
+
+    </div>
+
+
+    <div class="container">
+
+      <div class="row mt-3 col-md-12">
+
+     <div class="col-md-7">
+      
+      <div class="d-flex justify-content-between mb-3">
+
+        <h3>
+         کتابها
+  
+          <span class="badge badge-danger" id="bookLenght">
+  
+            0
+  
+          </span>
+  
+      </h3>
+  
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control ml-sm-2" type="search" placeholder="بین کتاب ها جستجو کنید..." aria-label="Search">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">جستجو</button>
+      </form>
+  
+      <button type="button" class="btn btn-outline-dark" id="addBook" data-toggle="modal" data-target="#exampleModal">
+          اضافه کردن کتاب
+        </button>
+  
+
+      </div>
+
+      <div class="d-flex justify-centent-center">
+        <table class="table text-center" >
+
+          <thead class="table-dark">
+  
+           <tr>
+               <th>نام اثر</th>
+               <th>نویسنده کتاب</th>
+               <th>قیمت</th>
+               <th>ژانر</th>
+           </tr>
+
+
+  
+          </thead>
+  
+          <tbody id="bookItemsTable">
+  
+
+            <tr id="notFoundBlock">
+
+              <td colspan="4" class="table-light text-dark">
+                فعلا کتابی را ضافه نکرده اید :(
+                </td>
+             </tr>
+
+  
+  
+          </tbody>
+  
+           
+  
+  
+       </table>
+      </div>
+
+      
+     
+
+
+     </div>
+
+
+     <div class="col-md-5">
+
+      <img src="images/Books.svg" class="w-100" alt="">
+
+     </div>
+
+      </div>
+
+
+    </div>
+    
+
+
+    </div>
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header d-flex align-items-center">
+          <h5 class="modal-title" id="exampleModalLabel">ثبت محصول جدید</h5>
+          <span class="badge badge-danger badge-lg" id="validtionErrorBox">
+            <!-- نام کتاب را وارد کنید -->
+          </span>
+        </div>
+      <form action="#" id="bookRecordForm">
+        <div class="modal-body">
+         
+         
+                
+            <div class="form-row mb-3">
+                <div class="col">
+                  <input type="text" class="form-control book-input" id="bookName" name="bookName" placeholder="نام کتاب (مثال: شاهزاده مرلین)">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control book-input" id="bookAuthor" name="bookAuthor" placeholder="نویسنده (مثال: افلاطون)">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col">
+                  <input type="text" class="form-control book-input" id="bookPrice" name="bookPrice" placeholder="قیمت (مثال: ۱۲۹/۰۰۰)">
+                </div>
+                <div class="col">
+                  <select name="bookGenere" class="form-control">
+                    <option selected>ژانر: (مثال وسترن، معایی و...)</option>
+                    <option>دارم</option>
+                    <option>ترسناک</option>
+                    <option>وسترن</option>
+                    <option>معمایی</option>
+                  </select>
+                </div>
+              </div>
+
+
+
+    </div>
+    <div class="modal-footer">
+  
+          <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
+          <button type="submit" class="btn btn-dark" id="bookRecordBTN" name="bookRecordBTN">اضافه کردن کتاب</button>
+        </div>
+
+      </form>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="bookList.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
